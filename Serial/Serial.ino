@@ -1,6 +1,5 @@
 String Speed;
-char DataToRead[2];
-int speed= 0;
+int speed= 200;
 
 int a1 = 4;
 int a2 = 5;
@@ -16,6 +15,7 @@ void setup(){
 }
 
 void loop(){
+        char DataToRead[2];
 	DataToRead[1] = '\n';
 	
 	Serial.readBytesUntil(char(13),DataToRead, 2);
