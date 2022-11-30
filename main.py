@@ -12,6 +12,7 @@ ser = serial.Serial(base_path+by_id, 9600)
 
 direction = 'r'
 
+
 cmd = ("%c\n" %direction).encode('ascii')
 print("My cmd is %s" % cmd)
 ser.write(cmd)
