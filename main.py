@@ -8,7 +8,7 @@ base_path = '/dev/serial/by-id/'
 by_id = 'usb-Arduino__www.arduino.cc__0043_758303334383510102E1-if00'
 ser = serial.Serial(base_path+by_id, 9600)
 
-
+print('test')
 
 direction = 'r'
 
