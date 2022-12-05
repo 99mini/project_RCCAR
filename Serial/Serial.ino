@@ -1,10 +1,27 @@
-String Speed;
-int speed= 200;
+/*
+motor speed
+*/
+
+int SPEED= 200;
+
+/*
+motor pin number
+a: right motor
+b: left motor
+*/
 
 int a1 = 4;
 int a2 = 5;
 int b1 = 6;
 int b2 = 7;
+
+/*
+constant delay time
+delay time is wheel operation time
+if the delay time is longer, the wheel operation time is longer.
+*/
+
+int DELAY_TIME = 720;
 
 void setup(){
 	Serial.begin(9600);
@@ -15,7 +32,7 @@ void setup(){
 }
 
 void loop(){
-        char DataToRead[2];
+    char DataToRead[2];
 	DataToRead[1] = '\n';
 	
 	Serial.readBytesUntil(char(13),DataToRead, 2);
@@ -25,35 +42,35 @@ void loop(){
 	while(DataToRead[i] != '\n' && i < 2) i++;
 	
 	switch(direction){
-	case 'G':
-		analogWrite(a1,0);
-		analogWrite(a2,speed);
-		analogWrite(b1,speed);
-		analogWrite(b2,0);
-		delay(3000);
-		break;
-	case 'B':
-		analogWrite(a1,speed);
-		analogWrite(a2,0);
-		analogWrite(b1,0);
-		analogWrite(b2,speed);
-		delay(3000);
-		break;
-	case 'L':
-		analogWrite(a1,0);
-		analogWrite(a2,speed);
-		analogWrite(b1,0);
-		analogWrite(b2,0);
-		delay(3000);
-		break;
-	case 'R':
-		analogWrite(a1,0);
-		analogWrite(a2,0);
-		analogWrite(b1,speed);
-		analogWrite(b2,0);
-		delay(3000);
-		break;
-	default:
-		return;
+		case 'G':
+			analogWrite(a1,0);
+			analogWrite(a2,SPEED);
+			analogWrite(b1,SPEED);
+			analogWrite(b2,0);
+			delay(DELAY_TIME);
+			break;
+		case 'B':
+			analogWrite(a1,SPEED);
+			analogWrite(a2,0);
+			analogWrite(b1,0);
+			analogWrite(b2,SPEED);
+			delay(DELAY_TIME);
+			break;
+		case 'L':
+			analogWrite(a1,0);
+			analogWrite(a2,SPEED);
+			analogWrite(b1,0);
+			analogWrite(b2,0);
+			delay(DELAY_TIME);
+			break;
+		case 'R':
+			analogWrite(a1,0);
+			analogWrite(a2,0);
+			analogWrite(b1,SPEED);
+			analogWrite(b2,0);
+			delay(DELAY_TIME);
+			break;
+		default:
+			return;
     }
 }
