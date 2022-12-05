@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-import cv2
 import time
+
+import cv2
+import numpy as np
+
 from Image import *
+
 
 # 그림을 slices 의 수만큼 조각낸다
 def SlicePart(im, images, slices):
     height, width = im.shape[:2]
-    sl = int(height/slices);
+    sl = int(height/slices)
     points = []
 
     for i in range(slices):
