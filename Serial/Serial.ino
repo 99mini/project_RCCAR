@@ -42,28 +42,28 @@ void loop(){
 	while(DataToRead[i] != '\n' && i < 2) i++;
 	
 	switch(direction){
-		case 'B':
+		case 'G':
 			analogWrite(a1,0);
 			analogWrite(a2,SPEED);
 			analogWrite(b1,SPEED);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'G':
+		case 'B':
 			analogWrite(a1,SPEED);
 			analogWrite(a2,0);
 			analogWrite(b1,0);
 			analogWrite(b2,SPEED);
 			delay(DELAY_TIME);
 			break;
-		case 'R':
+		case 'L':
 			analogWrite(a1,0);
 			analogWrite(a2,SPEED);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'L':
+		case 'R':
 			analogWrite(a1,0);
 			analogWrite(a2,0);
 			analogWrite(b1,SPEED);
