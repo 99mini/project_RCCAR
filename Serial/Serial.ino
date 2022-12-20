@@ -86,12 +86,11 @@ void loop(){
 			delay(SMALL_DELAY_TIME);
 			break;
 		default:
-			return;
+			break;
     }
     analogWrite(a1,0);
 	analogWrite(a2,0);
 	analogWrite(b1,0);
 	analogWrite(b2,0);
-	delay(100);
-	Serial.write("ACK\n");
+	delay(1000);
 }
