@@ -37,6 +37,7 @@ void test() {
 	analogWrite(a2,R_MAX);
 	analogWrite(b1,L_MAX);
 	analogWrite(b2,0);
+	Serial.println("test code");
 	delay(2000);
 }
 
