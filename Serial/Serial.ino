@@ -22,7 +22,7 @@ delay time is wheel operation time
 if the delay time is longer, the wheel operation time is longer.
 */
 
-int DELAY_TIME = 210;
+int DELAY_TIME = 100;
 
 void setup(){
 	Serial.begin(9600);
@@ -78,5 +78,5 @@ void loop(){
 	analogWrite(a2,0);
 	analogWrite(b1,0);
 	analogWrite(b2,0);
-	delay(50);
+	delay(1000);
 }
