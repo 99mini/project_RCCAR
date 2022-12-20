@@ -4,7 +4,7 @@ motor speed
 
 #define R_MAX 230
 #define L_MAX 255
-#define DELAY_TIME 210
+#define DELAY_TIME 160
 #define SMALL_DELAY_TIME 130
 
 /*
@@ -57,28 +57,28 @@ void loop(){
 			analogWrite(b2,L_MAX);
 			delay(DELAY_TIME);
 			break;
-		case 'R':
+		case 'L':
 			analogWrite(a1,0);
 			analogWrite(a2,R_MAX);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'L':
+		case 'R':
 			analogWrite(a1,0);
 			analogWrite(a2,0);
 			analogWrite(b1,L_MAX);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'r':
+		case 'l':
 			analogWrite(a1,0);
 			analogWrite(a2,R_MAX);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
 			delay(SMALL_DELAY_TIME);
 			break;
-		case 'l':
+		case 'r':
 			analogWrite(a1,0);
 			analogWrite(a2,0);
 			analogWrite(b1,L_MAX);
