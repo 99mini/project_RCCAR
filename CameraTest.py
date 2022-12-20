@@ -26,8 +26,8 @@ for _ in range(N_SLICES):
 camera = picamera.PiCamera()
 camera.resolution = (320, 240)
 camera.framerate = 30
-camera.brightness = 100
-camera.contrast = 100
+camera.brightness = 70
+camera.contrast = 70
 camera.exposure_mode = 'fireworks'
 
 zf = 0.2
