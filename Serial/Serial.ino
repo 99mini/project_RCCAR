@@ -73,4 +73,5 @@ void loop(){
 		default:
 			return;
     }
+	delay(3000);
 }

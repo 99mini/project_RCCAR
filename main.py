@@ -140,16 +140,7 @@ while True:
         
         # command
         get_cmd(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0])
+		
     else:
         print('not even processed')
-
-while True:
-	for direction in directions:
-		cmd = ("%c\n" %direction).encode('ascii')
-		print("My cmd is %s" % cmd)
-		ser.write(cmd)
-
-		# For debugging, read cmd from arduino    
-		# read_serial=ser.readline()
-		# print(read_serial)
 
