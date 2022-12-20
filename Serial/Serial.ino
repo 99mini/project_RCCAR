@@ -32,8 +32,16 @@ void setup(){
 	pinMode(b2,OUTPUT);
 }
 
-void loop(){
-    char DataToRead[2];
+void test() {
+	analogWrite(a1,0);
+	analogWrite(a2,R_MAX);
+	analogWrite(b1,L_MAX);
+	analogWrite(b2,0);
+	delay(2000);
+}
+
+void mainFunction(){
+	char DataToRead[2];
 	DataToRead[1] = '\n';
 	
 	Serial.readBytesUntil(char(13),DataToRead, 2);
@@ -106,4 +114,9 @@ void loop(){
 	analogWrite(b1,0);
 	analogWrite(b2,0);
 	delay(100);
+}
+
+void loop(){
+	test();
+    //mainFunction();
 }
