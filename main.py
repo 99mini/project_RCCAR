@@ -114,8 +114,10 @@ for _ in range(N_SLICES):
 camera = picamera.PiCamera()
 camera.resolution = (320, 240)
 camera.framerate = 30
-camera.brightness = 60
-camera.contrast = 65
+camera.brightness = 100
+camera.contrast = 100
+camera.exposure_mode = 'fireworks'
+
 zf = 0.2
 camera.zoom = (0+zf, 0+zf, 1-2*zf, 1-2*zf)
 rawCapture = picamera.array.PiRGBArray(camera, size = (320, 240))
