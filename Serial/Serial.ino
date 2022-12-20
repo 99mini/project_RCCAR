@@ -90,7 +90,7 @@ void loop(){
 			analogWrite(a2,0);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
-			break;
+			return;
     }
 	if(direction == 'R' || direction == 'L'){
       delay(20);
