@@ -121,7 +121,7 @@ camera.exposure_mode = 'fireworks'
 zf = 0.2
 camera.zoom = (0+zf, 0+zf, 1-2*zf, 1-2*zf)
 rawCapture = picamera.array.PiRGBArray(camera, size = (320, 240))
-time.sleep (0.1)
+time.sleep(0.1)
 
 
 for frame in camera.capture_continuous (rawCapture, format = "bgr", use_video_port = True):
