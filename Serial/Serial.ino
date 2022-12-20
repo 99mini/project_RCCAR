@@ -92,5 +92,6 @@ void loop(){
 	analogWrite(a2,0);
 	analogWrite(b1,0);
 	analogWrite(b2,0);
-	delay(1000);
+	delay(100);
+	Serial.write("ACK\n");
 }

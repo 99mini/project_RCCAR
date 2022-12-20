@@ -91,8 +91,8 @@ def get_cmd(y1, y2, y3, y4, y5, y6):
     print("send")
 	
     # read cmd from arduino and print it    
-    # read_serial = ser.readline()
-    # print("<<< %s" % (read_serial))
+    read_serial = ser.readline()
+    print("<<< %s" % (read_serial))
 
 
 ### setting arduino
