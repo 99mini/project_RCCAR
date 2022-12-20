@@ -4,8 +4,8 @@ motor speed
 
 #define R_MAX 230
 #define L_MAX 255
-#define DELAY_TIME 160
-#define SMALL_DELAY_TIME 100
+#define DELAY_TIME 210
+#define SMALL_DELAY_TIME 130
 
 /*
 motor pin number
