@@ -177,8 +177,8 @@ for frame in camera.capture_continuous (rawCapture, format = "bgr", use_video_po
     # 조각난 이미지를 한 개로 합친다
     fm = RepackImages(Images)
 
-
-    # Move(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0], Points[6][0], Points[7][0], Points[8][0], Points[9][0])
+    get_cmd(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0])
+	
     #Display the resulting frame
     cv2.imshow('frame', fm)
     rawCapture.truncate(0)
