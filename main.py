@@ -118,7 +118,9 @@ ret = img.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 skip = 30
 
 while True:
+
     ret , frame = img.read()
+
     if skip > 0:
         skip -= 1
     elif frame is not None:
@@ -140,7 +142,7 @@ while True:
         
         # command
         get_cmd(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0])
-		
+		time.sleep(1)
     else:
         print('not even processed')
 

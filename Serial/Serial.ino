@@ -56,14 +56,14 @@ void loop(){
 			analogWrite(b2,SPEED);
 			delay(DELAY_TIME);
 			break;
-		case 'L':
+		case 'R':
 			analogWrite(a1,0);
 			analogWrite(a2,SPEED);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'R':
+		case 'L':
 			analogWrite(a1,0);
 			analogWrite(a2,0);
 			analogWrite(b1,SPEED);
