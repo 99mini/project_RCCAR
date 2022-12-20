@@ -73,12 +73,10 @@ def get_cmd(y1, y2, y3, y4, y5, y6):
         direction = 'B'
     else:
         direction = 'G'
-        '''
         if master_point > TURN_MID and master_point < TURN_MAX :
             direction = 'l'
         if master_point < -TURN_MID and master_point > -TURN_MAX :
             direction = 'r'
-        '''
         if master_point >= TURN_MAX :
             direction = 'L'
         if master_point <= -TURN_MAX :

@@ -4,6 +4,8 @@ motor speed
 
 #define R_MAX 230
 #define L_MAX 255
+#define DELAY_TIME 160
+#define SMALL_DELAY_TIME 100
 
 /*
 motor pin number
@@ -21,8 +23,6 @@ constant delay time
 delay time is wheel operation time
 if the delay time is longer, the wheel operation time is longer.
 */
-
-int DELAY_TIME = 100;
 
 void setup(){
 	Serial.begin(9600);
@@ -70,6 +70,20 @@ void loop(){
 			analogWrite(b1,L_MAX);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
+			break;
+		case 'r':
+			analogWrite(a1,0);
+			analogWrite(a2,R_MAX);
+			analogWrite(b1,0);
+			analogWrite(b2,0);
+			delay(SMALL_DELAY_TIME);
+			break;
+		case 'l':
+			analogWrite(a1,0);
+			analogWrite(a2,0);
+			analogWrite(b1,L_MAX);
+			analogWrite(b2,0);
+			delay(SMALL_DELAY_TIME);
 			break;
 		default:
 			return;
