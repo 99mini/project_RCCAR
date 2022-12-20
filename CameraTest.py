@@ -1,65 +1,59 @@
-import numpy as np
+import time
+
 import cv2
+import numpy as np
+import serial
+import picamera
+import picamera.array
+
 from Image import *
 from Utils import *
-import time
 
 WIDTH = 320
 HEIGHT = 240
+TOLERANCE = 145
+TURN_MAX = 190
+TURN_MID = 90
 
+### settting camera
 Images=[]
 N_SLICES = 6
 
 for _ in range(N_SLICES):
     Images.append(Image())
 
-img = cv2.VideoCapture(0)
-#ret = img.set(cv2.CAP_PROP_FPS, 30)
-#ret= img.set(cv2.CAP_PROP_SATURATION, 0)
-#ret = img.set(cv2.CAP_PROP_BRIGHTNESS, 0.61)
-#ret= img.set(cv2.CAP_PROP_CONTRAST, 0.54)
-#ret = img.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
-#ret = img.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
-ret = img.set(3,320)
-ret = img.set(4,240)
-skip = 30
-while True:
-    
-    ret , frame = img.read()
-    '''
-    if not ret:
-        print('cannot read camera')
-        break
-        
-    print(frame)
-    cv2.imshow("Vision Race", frame)
+
+camera = picamera.PiCamera()
+camera.resolution = (320, 240)
+camera.framerate = 30
+camera.brightness = 100
+camera.contrast = 100
+camera.exposure_mode = 'fireworks'
+
+zf = 0.2
+camera.zoom = (0+zf, 0+zf, 1-2*zf, 1-2*zf)
+rawCapture = picamera.array.PiRGBArray(camera, size = (320, 240))
+time.sleep (0.1)
+
+for frame in camera.capture_continuous (rawCapture, format = "bgr", use_video_port = True):
+    # time.sleep(0.1)
+    image = frame.array
+    image = cv2.resize(image,(320,240))
+
+    # 이미지를 조각내서 윤곽선을 표시하게 무게중심 점을 얻는다
+    Points = SlicePart(image, Images, N_SLICES)
+    #print('Points : ', Points)
+
+    # 조각난 이미지를 한 개로 합친다
+    fm = RepackImages(Images)
+
+    #Display the resulting frame
+    cv2.imshow('frame', fm)
+    rawCapture.truncate(0)
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
-            #cv2.destroyAllWindows()
-            break
-    '''
-    if skip > 0:
-        skip -= 1
-    elif frame is not None:
-        skip = 6
-        #이미지를 조각내서 윤곽선을 표시하게 무게중심 점을 얻는다
-        Points = SlicePart(frame, Images, N_SLICES)
-        
-        print('Points : ', Points)
-        print()
-           
-        #조각난 이미지를 한 개로 합친다
-        fm = RepackImages(Images)
-        
-        #완성된 이미지를 표시한다
-        cv2.imshow("Vision Race", fm)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cv2.destroyAllWindows()
-            break
-        
-        # command
-        # get_cmd(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0])
-    else:
-        print('not even processed')
-    
-img.release()
+      print("Stopped!")
+      break
+
+# Closes all the frames
 cv2.destroyAllWindows()
