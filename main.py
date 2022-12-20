@@ -84,10 +84,13 @@ def get_cmd(y1, y2, y3, y4, y5, y6):
 
     cmd = ("%c\n" % (direction)).encode('ascii')
 
+
     print(">>> master_point:%d, cmd:%s" % (master_point, cmd))
     
     ser.write(cmd)
     print("send")
+    time.sleep(1)
+	
     # read cmd from arduino and print it    
     # read_serial = ser.readline()
     # print("<<< %s" % (read_serial))
@@ -99,7 +102,7 @@ by_id = 'usb-Arduino__www.arduino.cc__0043_758303334383510102E1-if00'
 ser = serial.Serial(base_path+by_id, 9600)
 
 print('start')
-time.sleep(3)
+time.sleep(1)
 
 ### settting camera
 Images=[]
@@ -143,6 +146,7 @@ while True:
         
         # command
         get_cmd(Points[0][0], Points[1][0], Points[2][0], Points[3][0], Points[4][0], Points[5][0])
+
     else:
         print('not even processed')
 
