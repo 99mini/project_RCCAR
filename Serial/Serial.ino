@@ -2,7 +2,7 @@
 motor speed
 */
 
-int SPEED= 200;
+int SPEED= 160;
 
 /*
 motor pin number
@@ -21,7 +21,7 @@ delay time is wheel operation time
 if the delay time is longer, the wheel operation time is longer.
 */
 
-int DELAY_TIME = 720;
+int DELAY_TIME = 100;
 
 void setup(){
 	Serial.begin(9600);
@@ -42,14 +42,14 @@ void loop(){
 	while(DataToRead[i] != '\n' && i < 2) i++;
 	
 	switch(direction){
-		case 'G':
+		case 'B':
 			analogWrite(a1,0);
 			analogWrite(a2,SPEED);
 			analogWrite(b1,SPEED);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
-		case 'B':
+		case 'G':
 			analogWrite(a1,SPEED);
 			analogWrite(a2,0);
 			analogWrite(b1,0);
