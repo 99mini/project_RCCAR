@@ -4,8 +4,11 @@ motor speed
 
 #define R_MAX 255
 #define L_MAX 255
-#define DELAY_TIME 100
-#define SMALL_DELAY_TIME 70
+#define R_MID 120
+#define L_MID 120
+
+#define DELAY_TIME 150
+#define SMALL_DELAY_TIME 100
 
 /*
 motor pin number
@@ -76,8 +79,8 @@ void mainFunction(){
 			break;
 		case 'R':
 			analogWrite(a1,0);
-			analogWrite(a2,0);
-			analogWrite(b1,L_MAX);
+			analogWrite(a2,R_MID);
+			analogWrite(b1,0);
 			analogWrite(b2,0);
 			delay(DELAY_TIME);
 			break;
@@ -119,6 +122,7 @@ void mainFunction(){
 }
 
 void loop(){
-    //test();
-    mainFunction();
+  //test();
+  
+  mainFunction();
 }
