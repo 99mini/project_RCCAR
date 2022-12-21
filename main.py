@@ -89,7 +89,7 @@ def get_cmd(y1, y2, y3, y4, y5, y6):
     
     ser.write(cmd)
     print("send")
-    # time.sleep(0.5)
+    time.sleep(0.7)
 	
     # read cmd from arduino and print it    
     # read_serial = ser.readline()

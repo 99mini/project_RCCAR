@@ -7,8 +7,9 @@ motor speed
 #define R_MID 120
 #define L_MID 120
 
-#define DELAY_TIME 150
-#define SMALL_DELAY_TIME 100
+#define DELAY_TIME 120
+#define SMALL_DELAY_TIME 150
+#define TINY_DELAY_TIME 100
 
 /*
 motor pin number
@@ -37,10 +38,10 @@ void setup(){
 
 void test() {
   
-	analogWrite(a1,0);
-	analogWrite(a2,R_MAX);
-	analogWrite(b1,L_MAX);
-	analogWrite(b2,0);
+	analogWrite(a1,R_MAX);
+	analogWrite(a2,0);
+	analogWrite(b1,0);
+	analogWrite(b2,L_MAX);
 	Serial.println("test code");
 	delay(2000);
 }
@@ -61,28 +62,30 @@ void mainFunction(){
 			analogWrite(a2,R_MAX);
 			analogWrite(b1,L_MAX);
 			analogWrite(b2,0);
-			delay(DELAY_TIME);
+			delay(TINY_DELAY_TIME);
 			break;
+
 		case 'B':
 			analogWrite(a1,R_MAX);
 			analogWrite(a2,0);
 			analogWrite(b1,0);
 			analogWrite(b2,L_MAX);
-			delay(DELAY_TIME);
+			delay(SMALL_DELAY_TIME);
 			break;
+
 		case 'L':
+			analogWrite(a1,0);
+			analogWrite(a2,L_MAX);
+			analogWrite(b1,0);
+			analogWrite(b2,0);
+			delay(SMALL_DELAY_TIME);
+			break;
+		case 'R':
 			analogWrite(a1,0);
 			analogWrite(a2,R_MAX);
 			analogWrite(b1,0);
 			analogWrite(b2,0);
-			delay(DELAY_TIME);
-			break;
-		case 'R':
-			analogWrite(a1,0);
-			analogWrite(a2,R_MID);
-			analogWrite(b1,0);
-			analogWrite(b2,0);
-			delay(DELAY_TIME);
+			delay(SMALL_DELAY_TIME);
 			break;
 		case 'l':
 			analogWrite(a1,0);
@@ -108,17 +111,17 @@ void mainFunction(){
 	if(direction == 'R' || direction == 'L'){
       delay(20);
     }
-    if(direction == 'B'){
+    else if(direction =='B'){
       delay(100);
     }
-    else{
-      delay(60);
-    }
+   
     analogWrite(a1,0);
 	analogWrite(a2,0);
 	analogWrite(b1,0);
 	analogWrite(b2,0);
-	delay(100);
+	delay(300);
+	Serial.println(direction);
+	
 }
 
 void loop(){
