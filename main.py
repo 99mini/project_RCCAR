@@ -104,14 +104,14 @@ ser = serial.Serial(base_path+by_id, 9600)
 print('start')
 time.sleep(1)
 
-### settting camera
+
 Images=[]
 N_SLICES = 6
 
 for _ in range(N_SLICES):
     Images.append(Image())
 
-
+### setting camera
 camera = picamera.PiCamera()
 camera.resolution = (320, 240)
 camera.framerate = 30
